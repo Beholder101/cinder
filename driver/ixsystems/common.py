@@ -52,7 +52,7 @@ class TrueNASCommon(object):
         """Check if any required iXsystems FREENAS configuration flag is missing."""
         for flag in self.required_flags:
             if not getattr(self.configuration, flag, None):
-                print "missing flag :", flag
+                print("missing flag :", flag)
                 raise exception.CinderException(_('%s is not set') % flag)
 
     def _do_custom_setup(self):
