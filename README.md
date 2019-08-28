@@ -3,7 +3,7 @@ FreeNAS Cinder Driver
 
 This repository contains driver scripts for FreeNAS interaction with OpenStack Cinder for block storage manipulation. 
 
-!!! It has been altered to support Python3 and the changed URLLIB2 behavior.
+!!! First attempts to alter code to support Python3 and the changed URLLIB2 behavior. WORK IN PROGRESS
 
 
 Requirements
