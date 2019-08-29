@@ -118,10 +118,12 @@ class FreeNASServer(object):
         """Creates urllib.Request object."""
         if not self._username or not self._password:
             raise ValueError("Invalid username/password combination")
-        auth = ('%s:%s' % (self._username,
-                           self._password)).encode('base64')[:-1]
+#        auth = ('%s:%s' % (self._username,
+#                           self._password)).encode('base64')[:-1]
+        auth = base64.urlsafe_b64encode(('%s:%s' % (self._username, self._password)).encode('utf-8'))
+        authstr = str(auth, "utf-8")
         headers = {'Content-Type': 'application/json',
-                   'Authorization': 'Basic %s' % (auth,)}
+                   'Authorization': 'Basic %s' % (authstr,)}
         url = self.get_url() + request_d
         LOG.debug('url : %s', url)
         LOG.debug('param list : %s', param_list)
